@@ -6,7 +6,7 @@ export const InstagramSection = styled.section`
 `;
 
 export const InstagramContainer = styled.div`
-  max-width: 1200px;
+  max-width: 1550px;
   margin: 0 auto;
   padding: 0 1rem;
 `;

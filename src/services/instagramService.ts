@@ -1,7 +1,5 @@
 import { InstagramPost } from '../types';
 
-const INSTAGRAM_ACCESS_TOKEN = import.meta.env.VITE_INSTAGRAM_ACCESS_TOKEN;
-
 export const instagramService = {
   async getRecentPosts(): Promise<InstagramPost[]> {
     try {
@@ -15,7 +13,6 @@ export const instagramService = {
         throw new Error('Instagram credentials not configured');
       }
 
-      // Usando o endpoint correto para o Instagram Graph API
       const url = `https://graph.instagram.com/${userId}/media?fields=id,media_type,media_url,thumbnail_url,permalink,caption,timestamp&access_token=${token}&limit=6`;
       console.log('🌐 Fazendo requisição para:', url);
 
@@ -54,11 +51,10 @@ export const instagramService = {
       console.error('❌ Erro ao buscar posts:', error);
       console.log('⚠️ Retornando posts simulados...');
       
-      // Posts simulados para desenvolvimento
       return [
         {
           id: 1,
-          image: "https://images.unsplash.com/photo-1599091333925-14b66b0d5be4?w=500&q=80",
+          image: "https://images.unsplash.com/photo-1604931668626-ab49cb27d952?w=500&q=80",
           likes: 1234,
           comments: 45,
           permalink: "https://www.instagram.com/"

@@ -7,7 +7,7 @@ export const VideosSection = styled.section`
 `;
 
 export const VideosContainer = styled.div`
-  max-width: 1200px;
+  max-width: 1550px;
   margin: 0 auto;
   padding: 0 1rem;
 `;
