@@ -2,8 +2,6 @@
 
 <div align="center">
 
-![Professora Simone](https://images.unsplash.com/photo-1605001011156-cbf0b0f67a51?w=800&q=80)
-
 [![YouTube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@professorasimone)
 [![Instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/professorasimone)
 
