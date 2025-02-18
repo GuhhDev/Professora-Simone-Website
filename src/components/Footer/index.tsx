@@ -26,7 +26,7 @@ export function Footer() {
               <Youtube style={{ height: '1.5rem', width: '1.5rem' }} />
             </SocialLink>
             <SocialLink
-              href="#"
+              href="https://www.instagram.com/crochedaprofessora"
               whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
             >
