@@ -2,14 +2,8 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 export const HeroSection = styled.section`
-  padding-top: 6rem;
+  padding-top: 4.3rem;
   background: linear-gradient(to bottom, ${({ theme }) => theme.colors.primary}11, ${({ theme }) => theme.colors.background});
-`;
-
-export const HeroContainer = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 5rem 1rem;
 `;
 
 export const HeroContent = styled(motion.div)`
@@ -23,26 +17,17 @@ export const HeroContent = styled(motion.div)`
   }
 `;
 
-export const TextContent = styled.div`
-  width: 100%;
-  margin-bottom: 2rem;
-  
-  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    width: 50%;
-    margin-bottom: 0;
-  }
-`;
-
 export const ImageContent = styled.div`
-  width: 100%;
-  
-  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    width: 50%;
-  }
-  
+  width: 100%; /* Garante que ocupe 100% da largura */
+  max-width: 100%; /* Evita que ultrapasse a largura da tela */
+  overflow: hidden; /* Garante que nada ultrapasse o container */
+
   img {
-    width: 100%;
-    height: auto;
-    border-radius: 1rem;
+    width: 100%; /* Faz a imagem ocupar 100% do container */
+    height: auto; /* Mantém a proporção da imagem */
+  }
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    width: 100%; /* Mantém 100% da largura mesmo em telas maiores */
   }
 `;
