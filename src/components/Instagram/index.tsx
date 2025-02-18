@@ -11,17 +11,12 @@ export function Instagram() {
 
   useEffect(() => {
     async function fetchPosts() {
-      console.log('🔄 Componente Instagram: Iniciando fetchPosts...');
       try {
-        console.log('📥 Componente Instagram: Chamando instagramService.getRecentPosts()');
         const instagramPosts = await instagramService.getRecentPosts();
-        console.log('📦 Componente Instagram: Posts recebidos:', instagramPosts);
         setPosts(instagramPosts);
       } catch (err) {
-        console.error('❌ Componente Instagram: Erro ao buscar posts:', err);
         setError('Erro ao carregar posts do Instagram');
       } finally {
-        console.log('✅ Componente Instagram: Finalizado fetchPosts');
         setLoading(false);
       }
     }
@@ -30,7 +25,6 @@ export function Instagram() {
   }, []);
 
   if (loading) {
-    console.log('⏳ Componente Instagram: Renderizando loading...');
     return (
       <InstagramSection id="instagram">
         <InstagramContainer>
@@ -43,7 +37,6 @@ export function Instagram() {
   }
 
   if (error) {
-    console.log('❌ Componente Instagram: Renderizando erro:', error);
     return (
       <InstagramSection id="instagram">
         <InstagramContainer>
@@ -55,7 +48,6 @@ export function Instagram() {
     );
   }
 
-  console.log('🎨 Componente Instagram: Renderizando', posts.length, 'posts');
   return (
     <InstagramSection id="instagram">
       <InstagramContainer>
@@ -66,7 +58,6 @@ export function Instagram() {
         
         <PostsGrid>
           {posts.map((post, index) => {
-            console.log(`🖼️ Renderizando post ${index + 1}:`, post);
             return (
               <PostCard
                 key={post.id}

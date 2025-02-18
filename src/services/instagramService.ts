@@ -3,21 +3,16 @@ import { InstagramPost } from '../types';
 export const instagramService = {
   async getRecentPosts(): Promise<InstagramPost[]> {
     try {
-      console.log('🔵 Iniciando busca de posts do Instagram...');
       const token = import.meta.env.VITE_INSTAGRAM_ACCESS_TOKEN;
       const userId = import.meta.env.VITE_INSTAGRAM_USER_ID;
-      console.log('🔑 Token encontrado:', token ? 'Sim' : 'Não');
-      console.log('👤 User ID encontrado:', userId ? 'Sim' : 'Não');
 
       if (!token || !userId) {
         throw new Error('Instagram credentials not configured');
       }
 
       const url = `https://graph.instagram.com/${userId}/media?fields=id,media_type,media_url,thumbnail_url,permalink,caption,timestamp&access_token=${token}&limit=6`;
-      console.log('🌐 Fazendo requisição para:', url);
 
       const response = await fetch(url);
-      console.log('📡 Status da resposta:', response.status);
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -26,8 +21,6 @@ export const instagramService = {
       }
 
       const data = await response.json();
-      console.log('✅ Resposta da API:', data);
-      console.log('📊 Número de posts recebidos:', data.data?.length || 0);
 
       if (!data.data) {
         throw new Error('No data received from Instagram API');
@@ -41,15 +34,11 @@ export const instagramService = {
           comments: 0,
           permalink: post.permalink
         };
-        console.log('🖼️ Post processado:', mappedPost);
         return mappedPost;
       });
 
-      console.log('🎉 Posts processados com sucesso:', posts.length);
       return posts;
     } catch (error) {
-      console.error('❌ Erro ao buscar posts:', error);
-      console.log('⚠️ Retornando posts simulados...');
       
       return [
         {

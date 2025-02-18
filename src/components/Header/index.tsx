@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X, Car as Yarn } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { HeaderContainer, Nav, Logo, DesktopMenu, MenuItem } from './styles';
 
@@ -23,7 +23,6 @@ export function Header({ activeSection }: HeaderProps) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
-          <Yarn className="h-8 w-8 text-rose-500" />
           <span>Professora Simone</span>
         </Logo>
         

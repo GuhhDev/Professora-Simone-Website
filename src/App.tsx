@@ -11,68 +11,28 @@ import { Hero } from './components/Hero';
 import { Footer } from './components/Footer';
 import { Header } from './components/Header';
 
-interface Video {
-  id: string;
-  title: string;
-  thumbnail: string;
-  views: string;
-  date: string;
-}
-
 function App() {
-  const [recentVideos, setRecentVideos] = useState<Video[]>([]);
   const [activeSection, setActiveSection] = useState('hero');
-  const channelId = 'UCxK0Mq4bwNhZbeQrB0yxDKw';
-
-  useEffect(() => {
-    const fetchVideos = async () => {
-      try {
-        const simulatedVideos = [
-          {
-            id: '1',
-            title: "PASSO A PASSO TAPETE RETANGULAR EM CROCHÊ",
-            thumbnail: "https://images.unsplash.com/photo-1604949210966-c66b5c06827b?w=500&q=80",
-            views: "50k",
-            date: "2 dias atrás"
-          },
-          {
-            id: '2',
-            title: "PASSO A PASSO TAPETE REDONDO EM CROCHÊ",
-            thumbnail: "https://images.unsplash.com/photo-1584992236310-6edddc08acff?w=500&q=80",
-            views: "35k",
-            date: "5 dias atrás"
-          },
-          {
-            id: '3',
-            title: "PASSO A PASSO JOGO AMERICANO EM CROCHÊ",
-            thumbnail: "https://images.unsplash.com/photo-1612459284970-e8f027596582?w=500&q=80",
-            views: "42k",
-            date: "1 semana atrás"
-          }
-        ];
-        setRecentVideos(simulatedVideos);
-      } catch (error) {
-        console.error('Erro ao buscar vídeos:', error);
-      }
-    };
-
-    fetchVideos();
-  }, [channelId]);
 
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['hero', 'portfolio', 'videos', 'instagram'];
-      const currentSection = sections.find(section => {
+      let currentSection = sections[0];
+      let minDistance = Infinity;
+
+      sections.forEach((section) => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+          const distance = Math.abs(rect.top);
+          if (distance < minDistance) {
+            minDistance = distance;
+            currentSection = section;
+          }
         }
-        return false;
       });
-      if (currentSection) {
-        setActiveSection(currentSection);
-      }
+
+      setActiveSection(currentSection);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -103,16 +63,14 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-
       <div className="min-h-screen bg-rose-50">
         <Header activeSection={activeSection} />
         <Hero />
         <Portfolio portfolioItems={portfolioItems} />
-        <Videos videos={recentVideos} />
+        <Videos />
         <Instagram />
         <Footer />
       </div>
-
     </ThemeProvider>
   );
 }

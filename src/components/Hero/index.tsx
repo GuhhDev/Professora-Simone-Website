@@ -25,7 +25,7 @@ export function Hero() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
             >
-              Aprenda crochê de forma fácil e divertida com tutoriais passo a passo
+              Aprenda crochê de forma fácil e divertida com tutoriais!
             </motion.p>
             <motion.div
               className="flex gap-4"
@@ -50,7 +50,7 @@ export function Hero() {
           
           <ImageContent>
             <motion.img
-              src="https://images.unsplash.com/photo-1584992236310-6edddc08acff?w=800&q=80"
+              src="./public/mae.jpeg"
               alt="Crochê artesanal"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}

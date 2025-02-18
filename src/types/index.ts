@@ -14,9 +14,10 @@ export interface PortfolioItem {
 }
 
 export interface InstagramPost {
-  id: number;
-  image: string;
-  likes: number;
-  comments: number;
+  id: string;
+  mediaUrl: string;
+  caption: string;
+  timestamp: string;
+  mediaType: string;
   permalink: string;
 }

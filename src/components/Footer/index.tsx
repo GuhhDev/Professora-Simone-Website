@@ -1,4 +1,4 @@
-import { Youtube, Instagram as InstagramIcon, Car as Yarn } from 'lucide-react';
+import { Youtube, Instagram as InstagramIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { FooterContainer, FlexContainer, LogoContainer, LogoText, SocialLinks, SocialLink, CopyrightText } from './styles';
 
@@ -13,7 +13,6 @@ export function Footer() {
       >
         <FlexContainer>
           <LogoContainer whileHover={{ scale: 1.05 }}>
-            <Yarn style={{ height: '2rem', width: '2rem' }} />
             <LogoText>Professora Simone</LogoText>
           </LogoContainer>
           <SocialLinks>
