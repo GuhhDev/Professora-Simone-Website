@@ -66,9 +66,9 @@ function App() {
       <div className="min-h-screen bg-rose-50">
         <Header activeSection={activeSection} />
         <Hero />
-        <Portfolio portfolioItems={portfolioItems} />
+        {/* <Portfolio portfolioItems={portfolioItems} /> */}
         <Videos />
-        <Instagram />
+        {/* <Instagram /> */}
         <Footer />
       </div>
     </ThemeProvider>
